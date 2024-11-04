@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NgForOf} from '@angular/common';
+import {NgForOf } from '@angular/common';
 
 @Component({
   selector: 'app-board',
@@ -17,12 +17,13 @@ export class BoardComponent {
 
     constructor() {
       this.board = [
-        ['', '', ''],
-        ['', '', ''],
-        ['', '', ''],
-      ];
-    this.currentPlayer = 'X';
-    this.winner = null;
+          ['', '', ''],
+          ['', '', ''],
+          ['', '', ''],
+        ];
+      this.currentPlayer = 'X';
+      this.winner = null;
+      this.onReset();
   }
 
   checkWinner() {
@@ -49,17 +50,22 @@ export class BoardComponent {
     if (!this.board.flat().includes('') && !this.winner) {
       this.winner = 'Draw';
     }
+
   }
 
-
-
 onItemClick(row: number, col: number): void {
-    console.log(`Row: ${row}, Column: ${col}`);
-    this.board[row][col] = this.currentPlayer;
 
-    this.checkWinner();
+      if(this.board[row][col] !== '' || this.winner !== null)
+      {
+        return;
+      }
 
-    if(this.currentPlayer === 'X')
+      console.log(`Row: ${row}, Column: ${col}`);
+      this.board[row][col] = this.currentPlayer;
+
+      this.checkWinner();
+
+      if(this.currentPlayer === 'X')
     {
       this.currentPlayer = 'O'
       return;
@@ -68,5 +74,15 @@ onItemClick(row: number, col: number): void {
 
   }
 
-
+  onReset() : void {
+    this.board = [
+      ['', '', ''],
+      ['', '', ''],
+      ['', '', ''],
+    ];
+  this.currentPlayer = 'X';
+  this.winner = null;
+  }
+  
 }
+

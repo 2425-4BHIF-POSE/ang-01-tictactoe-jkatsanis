@@ -7,3 +7,6 @@
 </div>
 
 <p>Its player's {{currentPlayer}}</p>
+
+<p>The winner is {{winner ? winner : 'not determined yet'}}</p>
+<button [disabled]="winner === null" (click)="onReset()">Restart</button>
