@@ -1,0 +1,22 @@
+$grid-gap: 10px; // Gap between grid items
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 100px); // Create 3 equal columns
+  grid-template-rows: repeat(3, 100px); // Create 3 equal rows
+  gap: $grid-gap; // Apply gap between items
+
+  // Optional: Add a border for visual clarity
+  border: 2px solid #ccc;
+  width: 330px;
+}
+
+.grid-item {
+  display: flex; // Center content
+  justify-content: center;
+  align-items: center;
+  background-color:  grey; // Background color for items
+  border: 1px solid #999; // Border for items
+  font-size: 24px; // Font size
+  width: 100px;
+}

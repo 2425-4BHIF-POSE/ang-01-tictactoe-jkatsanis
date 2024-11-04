@@ -1,0 +1,9 @@
+<div class="grid-container">
+  <ng-container *ngFor="let row of board; let i = index">
+    <div *ngFor="let cell of row; let j = index" class="grid-item" (click)="onItemClick(i, j)">
+      {{ cell }}
+    </div>
+  </ng-container>
+</div>
+
+<p>Its player's {{currentPlayer}}</p>
